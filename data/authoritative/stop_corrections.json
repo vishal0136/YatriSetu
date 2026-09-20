@@ -1,0 +1,15 @@
+{
+    "source_type": "CONTROLLED_EXPERIMENT",
+    "source_name": "YatriSetu Controlled Authoritative Evidence",
+    "source_reference": "EXPERIMENT-R011-001",
+    "records": [
+        {
+            "stop_id": "1",
+            "field": "stop_lat",
+            "current_value": 999.0,
+            "authoritative_value": 28.71797103184126,
+            "evidence_status": "VERIFIED_FOR_EXPERIMENT",
+            "reason": "Controlled experiment correction value"
+        }
+    ]
+}

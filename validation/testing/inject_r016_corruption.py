@@ -1,0 +1,60 @@
+from sqlalchemy import text
+from validation.testing.inject_corruption import test_engine
+
+
+def inject_r016_corruption():
+    print("Starting R016 controlled corruption...")
+
+    with test_engine.begin() as connection:
+
+        result = connection.execute(
+            text("""
+                SELECT trip_id, stop_sequence, arrival_time, departure_time
+                FROM stop_times
+                WHERE trip_id = :trip_id
+                  AND stop_sequence = :sequence
+            """),
+            {
+                "trip_id": "1_06_05",
+                "sequence": 5,
+            },
+        ).fetchone()
+
+        if result is None:
+            print("Target stop_times record was not found.")
+            return
+
+        trip_id, sequence, original_arrival, original_departure = result
+
+        print("Database: DTMS_TEST")
+        print("Trip ID:", trip_id)
+        print("Stop sequence:", sequence)
+        print("Original arrival_time:", original_arrival)
+        print("Original departure_time:", original_departure)
+
+        connection.execute(
+            text("""
+                UPDATE stop_times
+                SET departure_time = :corrupted_departure
+                WHERE trip_id = :trip_id
+                  AND stop_sequence = :sequence
+            """),
+            {
+                "trip_id": trip_id,
+                "sequence": sequence,
+                "corrupted_departure": 22405,
+            },
+        )
+
+        print("\nR016 corruption injected successfully.")
+        print("Trip ID:", trip_id)
+        print("Stop sequence:", sequence)
+        print("Arrival_time unchanged:", original_arrival)
+        print("Test departure_time: 22405")
+        print("Expected rule: R016")
+        print("Expected severity: HIGH")
+        print("Expected issue type: TIMETABLE")
+
+
+if __name__ == "__main__":
+    inject_r016_corruption()

@@ -1,0 +1,75 @@
+# ============================================================
+# YatriSetu Git Ignore
+# ============================================================
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / coverage cache
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Build / distribution
+.dist/
+dist/
+build/
+*.egg-info/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# PostgreSQL database dumps / backups
+*.dump
+*.backup
+*.sql.gz
+
+# Local database artifacts
+database/local/
+database/backups/
+
+# Large raw datasets
+data/raw/
+data/staging/
+data/rejected/
+
+# Generated validation reports
+validation/reports/
+
+# Model/cache files
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# Local backup source files
+*_backup.py
