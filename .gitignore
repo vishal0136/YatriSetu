@@ -73,3 +73,6 @@ validation/reports/
 
 # Local backup source files
 *_backup.py
+
+# Admin Agent audit logs
+validation/audit/

@@ -11,6 +11,16 @@ safety_validation = {
     "validation_status": "PASS",
     "errors": [],
     "warnings": [],
+    "approved_changes": [
+        {
+            "table": "stops",
+            "record_id": "1",
+            "field": "stop_lat",
+            "old_value": 999.0,
+            "proposed_value": 28.71797103184126,
+            "evidence_source": "YatriSet Controlled Authoritative Evidence"
+        }
+    ],
 }
 
 
@@ -53,7 +63,8 @@ recommendation = {
             "record_id": "1",
             "field": "stop_lat",
             "old_value": 999.0,
-            "proposed_value": 28.71797103184126
+            "proposed_value": 28.71797103184126,
+            "evidence_source": "YatriSet Controlled Authoritative Evidence"
         }
     ],
 
@@ -79,3 +90,5 @@ result = authorize_database_change(
 
 print("=== CHANGE AUTHORIZATION TEST ===")
 print(result)
+
+
