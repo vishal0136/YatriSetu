@@ -1,0 +1,38 @@
+{
+  "issue_summary": "Invalid latitude values detected in the dataset, with one record containing a latitude outside the configured Delhi-NCR review range.",
+  "primary_issue": "Invalid latitude value for stop_id '1' (999.0) which is outside the configured Delhi-NCR review range.",
+  "related_issues": [
+    "R011: Invalid latitude values detected.",
+    "R013: Stops contain coordinates outside the configured Delhi-NCR review range."
+  ],
+  "evidence": [
+    {
+      "source_type": "CONTROLLED_EXPERIMENT",
+      "source_name": "YatriSetu Controlled Authoritative Evidence",
+      "source_reference": "EXPERIMENT-R011-001",
+      "record": {
+        "stop_id": "1",
+        "field": "stop_lat",
+        "current_value": 999.0,
+        "authoritative_value": 28.71797103184126,
+        "evidence_status": "VERIFIED_FOR_EXPERIMENT",
+        "reason": "Controlled experiment correction value"
+      }
+    }
+  ],
+  "unknowns": [],
+  "recommended_action": "Propose correction of the latitude value for stop_id '1' from 999.0 to 28.71797103184126 based on authoritative evidence.",
+  "risk_level": "HIGH",
+  "confidence": 0.0,
+  "proposed_changes": [
+    {
+      "table": "stops",
+      "record_id": "1",
+      "field": "stop_lat",
+      "old_value": 999.0,
+      "proposed_value": 28.71797103184126,
+      "evidence_source": "YatriSetu Controlled Authoritative Evidence"
+    }
+  ],
+  "requires_admin_approval": true
+}
